@@ -13,5 +13,6 @@
     <name>Treewalk DevOps Platform: Reactor POM</name>
 
     <modules>
+        <module>org-treewalk-devops-parent</module>
     </modules>
 </project>
