@@ -14,5 +14,10 @@
 
     <modules>
         <module>org-treewalk-devops-parent</module>
+        <module>org-treewalk-devops-core</module>
+        <module>org-treewalk-devops-data</module>
+        <module>org-treewalk-devops-integration</module>
+        <module>org-treewalk-devops-packaging</module>
     </modules>
+
 </project>
