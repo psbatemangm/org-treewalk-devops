@@ -157,6 +157,7 @@
         <treewalk-parent-pom.versionsVersion>2.2</treewalk-parent-pom.versionsVersion>
         <treewalk-parent-pom.jgitflowVersion>1.0-m5.1</treewalk-parent-pom.jgitflowVersion>
         <treewalk-parent-pom.pitestVersion>1.1.5</treewalk-parent-pom.pitestVersion>
+        <treewalk-parent-pom.springBootVersion>1.2.5.RELEASE</treewalk-parent-pom.springBootVersion>
 
         <!-- Dependency Versions -->
     </properties>
@@ -224,7 +225,14 @@
     <!-- Managed Dependencies -->
     <dependencyManagement>
         <dependencies>
-
+            <dependency>
+                <!-- Import dependency management from Spring Boot -->
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${treewalk-parent-pom.springBootVersion}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -542,6 +550,12 @@
                     <version>${treewalk-parent-pom.pitestVersion}</version>
                 </plugin>
 
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${treewalk-parent-pom.springBootVersion}</version>
+                </plugin>
+
                 <!-- Other plugins -->
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
@@ -719,7 +733,7 @@
                                 <configuration>
                                     <rules>
                                         <requireMavenVersion>
-                                            <version>[2.2.1,),[3.0.4,)</version>
+                                            <version>[3.0.4,)</version>
                                         </requireMavenVersion>
                                         <requirePluginVersions>
                                             <message><![CDATA[Found plugins without fixed release version defined, build is not reproducible! Fix all plugin versions.]]></message>

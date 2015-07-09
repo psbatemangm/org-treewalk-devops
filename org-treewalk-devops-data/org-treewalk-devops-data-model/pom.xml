@@ -7,14 +7,11 @@
         <groupId>org.treewalk.devops</groupId>
         <artifactId>org-treewalk-devops-parent-pom</artifactId>
         <version>0.1-SNAPSHOT</version>
-        <relativePath>../org-treewalk-devops-parent/pom.xml</relativePath>
+        <relativePath>../../org-treewalk-devops-parent/pom.xml</relativePath>
     </parent>
 
-    <artifactId>org-treewalk-devops-data</artifactId>
-    <packaging>pom</packaging>
-    <name>Treewalk DevOps Platform: Data</name>
+    <artifactId>org-treewalk-devops-data-model</artifactId>
+    <packaging>jar</packaging>
+    <name>Treewalk DevOps Platform: Data Model</name>
 
-    <modules>
-        <module>org-treewalk-devops-data-model</module>
-    </modules>
 </project>
