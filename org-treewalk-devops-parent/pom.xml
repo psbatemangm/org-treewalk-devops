@@ -78,24 +78,24 @@
         <!-- ================================= -->
 
         <!-- Treewalk repository locations (do not overwrite) -->
-        <treewalk-parent-pom.releaseRepositoryId>acme-repository</treewalk-parent-pom.releaseRepositoryId>
-        <treewalk-parent-pom.releaseRepositoryUrl>dav:http://repository.intranet.acme.com/libs-releases</treewalk-parent-pom.releaseRepositoryUrl>
+        <treewalk-parent-pom.releaseRepositoryId>treewalk-repository</treewalk-parent-pom.releaseRepositoryId>
+        <treewalk-parent-pom.releaseRepositoryUrl>dav:http://repository.intranet.treewalk.com/libs-releases</treewalk-parent-pom.releaseRepositoryUrl>
 
-        <treewalk-parent-pom.snapshotRepositoryId>acme-repository</treewalk-parent-pom.snapshotRepositoryId>
-        <treewalk-parent-pom.snapshotRepositoryUrl>dav:http://repository.intranet.acme.com/libs-snapshots</treewalk-parent-pom.snapshotRepositoryUrl>
+        <treewalk-parent-pom.snapshotRepositoryId>treewalk-repository</treewalk-parent-pom.snapshotRepositoryId>
+        <treewalk-parent-pom.snapshotRepositoryUrl>dav:http://repository.intranet.treewalk.com/libs-snapshots</treewalk-parent-pom.snapshotRepositoryUrl>
 
-        <treewalk-parent-pom.siteRepositoryId>acme-site</treewalk-parent-pom.siteRepositoryId>
-        <treewalk-parent-pom.siteRepositoryUrl>scp://sites.intranet.acme.com/var/www</treewalk-parent-pom.siteRepositoryUrl>
+        <treewalk-parent-pom.siteRepositoryId>treewalk-site</treewalk-parent-pom.siteRepositoryId>
+        <treewalk-parent-pom.siteRepositoryUrl>scp://sites.intranet.treewalk.com/var/www</treewalk-parent-pom.siteRepositoryUrl>
 
         <!-- Treewalk projects information (do not overwrite) -->
-        <treewalk-parent-pom.organizationName>ACME Corporation</treewalk-parent-pom.organizationName>
-        <treewalk-parent-pom.organizationUrl>http://www.acme.com</treewalk-parent-pom.organizationUrl>
-        <treewalk-parent-pom.siteUrl>http://sites.intranet.acme.com</treewalk-parent-pom.siteUrl>
+        <treewalk-parent-pom.organizationName>Treewalk</treewalk-parent-pom.organizationName>
+        <treewalk-parent-pom.organizationUrl>http://www.treewalk.com</treewalk-parent-pom.organizationUrl>
+        <treewalk-parent-pom.siteUrl>http://sites.intranet.treewalk.com</treewalk-parent-pom.siteUrl>
 
-        <treewalk-parent-pom.ciManagementUrl>http://bamboo.intranet.acme.com/</treewalk-parent-pom.ciManagementUrl>
-        <treewalk-parent-pom.issueManagementUrl>http://jira.intranet.acme.com/</treewalk-parent-pom.issueManagementUrl>
+        <treewalk-parent-pom.ciManagementUrl>http://bamboo.intranet.treewalk.com/</treewalk-parent-pom.ciManagementUrl>
+        <treewalk-parent-pom.issueManagementUrl>http://jira.intranet.treewalk.com/</treewalk-parent-pom.issueManagementUrl>
 
-        <treewalk-parent-pom.sonarUrl>http://sonar.intranet.acme.com/sonar</treewalk-parent-pom.sonarUrl>
+        <treewalk-parent-pom.sonarUrl>http://sonar.intranet.treewalk.com/sonar</treewalk-parent-pom.sonarUrl>
         <treewalk-parent-pom.sonarProfile>Treewalk</treewalk-parent-pom.sonarProfile>
 
         <treewalk-parent-pom.checkstyleUrl><![CDATA[${treewalk-parent-pom.sonarUrl}/profiles/export?name=${treewalk-parent-pom.sonarProfile}&language=${sonar.language}&format=checkstyle]]></treewalk-parent-pom.checkstyleUrl>
@@ -157,6 +157,8 @@
         <treewalk-parent-pom.versionsVersion>2.2</treewalk-parent-pom.versionsVersion>
         <treewalk-parent-pom.jgitflowVersion>1.0-m5.1</treewalk-parent-pom.jgitflowVersion>
         <treewalk-parent-pom.pitestVersion>1.1.5</treewalk-parent-pom.pitestVersion>
+
+        <!-- Dependency Versions -->
     </properties>
 
     <!-- ================= -->
@@ -204,17 +206,28 @@
 
     <developers>
         <developer>
-            <email>developer1@acme.com</email>
+            <name>Pat Bateman</name>
+            <roles>
+                <role>Lead</role>
+            </roles>
         </developer>
     </developers>
 
     <!-- <contributors /> -->
 
     <scm>
-        <connection>scm:svn:http://m4enterprise.googlecode.com/svn/trunk/corporate-pom</connection>
-        <developerConnection>scm:svn:https://m4enterprise.googlecode.com/svn/trunk/corporate-pom</developerConnection>
-        <url>http://code.google.com/p/m4enterprise/source/browse/trunk/corporate-pom</url>
+        <connection>scm:git:git@github.com:Treewalk/org-treewalk-devops.git</connection>
+        <developerConnection>scm:git:git@github.com:Treewalk/org-treewalk-devops.git</developerConnection>
+        <url>https://github.com/Treewalk/org-treewalk-devops</url>
     </scm>
+
+    <!-- Managed Dependencies -->
+    <dependencyManagement>
+        <dependencies>
+
+        </dependencies>
+    </dependencyManagement>
+
 
     <build>
         <!-- Plugin order based on http://maven.apache.org/plugins/index.html -->
