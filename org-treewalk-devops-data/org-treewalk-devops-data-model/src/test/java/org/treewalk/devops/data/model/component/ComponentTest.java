@@ -78,8 +78,39 @@ public class ComponentTest {
         assertThat(component1.equals(component2), is(false));
     }
 
+    @Test
+    public void testComponentCoordinateEqualityWithArtefactIdTheSame() {
+        // given
+        Component component1 = new Component();
+        ComponentIdentifier componentIdentifier1 = new ComponentIdentifier();
+        component1.setIdentifier(componentIdentifier1);
+        componentIdentifier1.setArtefactId("bar");
 
+        Component component2 = new Component();
+        ComponentIdentifier componentIdentifier2 = new ComponentIdentifier();
+        component2.setIdentifier(componentIdentifier2);
+        componentIdentifier2.setArtefactId("bar");
 
+        // then
+        assertThat(component1.equals(component2), is(true));
+    }
+
+    @Test
+    public void testComponentCoordinateEqualityWithArtefactIdNotSame() {
+        // given
+        Component component1 = new Component();
+        ComponentIdentifier componentIdentifier1 = new ComponentIdentifier();
+        component1.setIdentifier(componentIdentifier1);
+        componentIdentifier1.setArtefactId("foo");
+
+        Component component2 = new Component();
+        ComponentIdentifier componentIdentifier2 = new ComponentIdentifier();
+        component2.setIdentifier(componentIdentifier2);
+        componentIdentifier2.setArtefactId("bar");
+
+        // then
+        assertThat(component1.equals(component2), is(false));
+    }
 
     @Test
     public void testComponentCoordinateEqualityWithAllValuesEqual() {
