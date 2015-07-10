@@ -33,13 +33,12 @@ public final class ComponentIdentifier extends IdentifiableEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
 
         ComponentIdentifier that = (ComponentIdentifier) o;
 
-        if (!groupId.equals(that.groupId)) return false;
-        return artefactId.equals(that.artefactId);
 
+        if (groupId != null ? !groupId.equals(that.getGroupId()) : that.getGroupId() != null) return false;
+        return !(artefactId != null ? !artefactId.equals(that.artefactId) : that.artefactId != null);
     }
 
     @Override
