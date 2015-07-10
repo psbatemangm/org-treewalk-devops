@@ -160,6 +160,9 @@
         <treewalk-parent-pom.springBootVersion>1.2.5.RELEASE</treewalk-parent-pom.springBootVersion>
 
         <!-- Dependency Versions -->
+        <treewalk-parent-pom.junitVersion>4.12</treewalk-parent-pom.junitVersion>
+
+
     </properties>
 
     <!-- ================= -->
@@ -225,17 +228,33 @@
     <!-- Managed Dependencies -->
     <dependencyManagement>
         <dependencies>
+            <!-- Import dependency management from Spring Boot -->
             <dependency>
-                <!-- Import dependency management from Spring Boot -->
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
                 <version>${treewalk-parent-pom.springBootVersion}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
+            <!-- Test Dependencies -->
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${treewalk-parent-pom.junitVersion}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
+    <!-- Default Dependencies for all Modules -->
+    <dependencies>
+        <!-- Test Dependencies -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
     <build>
         <!-- Plugin order based on http://maven.apache.org/plugins/index.html -->

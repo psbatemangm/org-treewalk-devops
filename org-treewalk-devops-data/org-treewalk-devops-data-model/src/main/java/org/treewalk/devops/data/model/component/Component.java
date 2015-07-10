@@ -51,6 +51,13 @@ public class Component extends IdentifiableEntity {
         this.dependencies.add(dependency);
     }
 
+    /**
+     * <p>Equality is based of the <code>GAV</code> co-ordinates</p>
+     *
+     * @param o the object to compare
+     *
+     * @return
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -63,6 +70,11 @@ public class Component extends IdentifiableEntity {
 
     }
 
+    /**
+     * <p>Hash is based on the <code>GAV</code> co-ordinates</p>
+     *
+     * @return the hash code
+     */
     @Override
     public int hashCode() {
         int result = identifier != null ? identifier.hashCode() : 0;
