@@ -47,15 +47,9 @@ public class ComponentTest {
     @Test
     public void testComponentCoordinateEqualityWithGroupIdTheSame() {
         // given
-        Component component1 = new Component();
-        ComponentIdentifier componentIdentifier1 = new ComponentIdentifier();
-        component1.setIdentifier(componentIdentifier1);
-        componentIdentifier1.setGroupId("bar");
+        Component component1 = new Component(null, "foo", null ,null, null, null);
 
-        Component component2 = new Component();
-        ComponentIdentifier componentIdentifier2 = new ComponentIdentifier();
-        component2.setIdentifier(componentIdentifier2);
-        componentIdentifier2.setGroupId("bar");
+        Component component2 = new Component(null, "foo", null ,null, null, null);
 
         // then
         assertThat(component1.equals(component2), is(true));
@@ -64,15 +58,9 @@ public class ComponentTest {
     @Test
     public void testComponentCoordinateEqualityWithGroupIdTheNotSame() {
         // given
-        Component component1 = new Component();
-        ComponentIdentifier componentIdentifier1 = new ComponentIdentifier();
-        component1.setIdentifier(componentIdentifier1);
-        componentIdentifier1.setGroupId("foo");
+        Component component1 = new Component(null, "foo", null ,null, null, null);
 
-        Component component2 = new Component();
-        ComponentIdentifier componentIdentifier2 = new ComponentIdentifier();
-        component2.setIdentifier(componentIdentifier2);
-        componentIdentifier2.setGroupId("bar");
+        Component component2 = new Component(null, "bar", null ,null, null, null);
 
         // then
         assertThat(component1.equals(component2), is(false));
@@ -81,15 +69,9 @@ public class ComponentTest {
     @Test
     public void testComponentCoordinateEqualityWithArtefactIdTheSame() {
         // given
-        Component component1 = new Component();
-        ComponentIdentifier componentIdentifier1 = new ComponentIdentifier();
-        component1.setIdentifier(componentIdentifier1);
-        componentIdentifier1.setArtefactId("bar");
+        Component component1 = new Component(null, null, "bar" ,null, null, null);
 
-        Component component2 = new Component();
-        ComponentIdentifier componentIdentifier2 = new ComponentIdentifier();
-        component2.setIdentifier(componentIdentifier2);
-        componentIdentifier2.setArtefactId("bar");
+        Component component2 = new Component(null, null, "bar" ,null, null, null);
 
         // then
         assertThat(component1.equals(component2), is(true));
@@ -98,15 +80,9 @@ public class ComponentTest {
     @Test
     public void testComponentCoordinateEqualityWithArtefactIdNotSame() {
         // given
-        Component component1 = new Component();
-        ComponentIdentifier componentIdentifier1 = new ComponentIdentifier();
-        component1.setIdentifier(componentIdentifier1);
-        componentIdentifier1.setArtefactId("foo");
+        Component component1 = new Component(null, null, "foo" ,null, null, null);
 
-        Component component2 = new Component();
-        ComponentIdentifier componentIdentifier2 = new ComponentIdentifier();
-        component2.setIdentifier(componentIdentifier2);
-        componentIdentifier2.setArtefactId("bar");
+        Component component2 = new Component(null, null, "bar" ,null, null, null);
 
         // then
         assertThat(component1.equals(component2), is(false));
@@ -115,23 +91,9 @@ public class ComponentTest {
     @Test
     public void testComponentCoordinateEqualityWithAllValuesEqual() {
         // given
-        Component component1 = new Component();
-        ComponentIdentifier componentIdentifier1 = new ComponentIdentifier();
-        ComponentVersion componentVersion1 = new ComponentVersion();
-        component1.setIdentifier(componentIdentifier1);
-        component1.setVersion(componentVersion1);
-        componentIdentifier1.setArtefactId("foo");
-        componentIdentifier1.setGroupId("bar");
-        componentVersion1.setVersion("1");
+        Component component1 = new Component(null, "foo", "bar" ,"1", null, null);
 
-        Component component2 = new Component();
-        ComponentIdentifier componentIdentifier2 = new ComponentIdentifier();
-        ComponentVersion componentVersion2 = new ComponentVersion();
-        component2.setIdentifier(componentIdentifier1);
-        component2.setVersion(componentVersion1);
-        componentIdentifier2.setArtefactId("foo");
-        componentIdentifier2.setGroupId("bar");
-        componentVersion2.setVersion("1");
+        Component component2 = new Component(null, "foo", "bar" ,"1", null, null);
 
         // then
         assertThat(component1.equals(component2), is(true));

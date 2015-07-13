@@ -5,10 +5,14 @@ import org.treewalk.devops.data.model.IdentifiableEntity;
 /**
  * <p>The version of a {@link Component}.</p>.
  */
-public class ComponentVersion extends IdentifiableEntity {
+public final class ComponentVersion {
     private String version;
 
     public ComponentVersion() {
+    }
+
+    public ComponentVersion(String version) {
+        this.version = version;
     }
 
     public String getVersion() {
@@ -23,7 +27,6 @@ public class ComponentVersion extends IdentifiableEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
 
         ComponentVersion that = (ComponentVersion) o;
 

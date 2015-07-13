@@ -13,6 +13,14 @@ public abstract class IdentifiableEntity {
     protected IdentifiableEntity() {
     }
 
+    /**
+     * <p>Construct an {@link IdentifiableEntity} using an {@link ID};</p>
+     * @param id
+     */
+    public IdentifiableEntity(ID id) {
+        this.id = id;
+    }
+
     public final ID getId() {
         return id;
     }

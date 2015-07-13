@@ -8,14 +8,16 @@ import java.util.Collection;
 /**
  * <p>Defines an association between {@link Component}'s.</p>
  */
-public class ComponentDependency extends IdentifiableEntity {
+public final class ComponentDependency {
 
     private Component dependency;
-    private Collection<ComponentIdentifier> exclusions;
+    private Collection<ComponentNamespace> exclusions;
     private ComponentDependencyScope scope;
 
-    public ComponentDependency() {
-        this.exclusions = new ArrayList<>();
+    public ComponentDependency(Component dependency, Collection<ComponentNamespace> exclusions, ComponentDependencyScope scope) {
+        this.dependency = dependency;
+        this.exclusions = new ArrayList<>(exclusions);
+        this.scope = scope;
     }
 
     public Component getDependency() {
@@ -26,19 +28,19 @@ public class ComponentDependency extends IdentifiableEntity {
         this.dependency = dependency;
     }
 
+    public Collection<ComponentNamespace> getExclusions() {
+        return this.exclusions;
+    }
+
+    public void addExclusion(ComponentNamespace exclusion) {
+        this.exclusions.add(exclusion);
+    }
+
     public ComponentDependencyScope getScope() {
         return scope;
     }
 
     public void setScope(ComponentDependencyScope scope) {
         this.scope = scope;
-    }
-
-    public Collection<ComponentIdentifier> getExclusions() {
-        return exclusions;
-    }
-
-    public void addExclusion(ComponentIdentifier identifier) {
-        this.exclusions.add(identifier);
     }
 }

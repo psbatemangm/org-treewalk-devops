@@ -5,5 +5,5 @@ import org.treewalk.devops.data.model.IdentifiableEntity;
 /**
  * <p>Defines the packaging type of the {@link Component}.</p>
  */
-public class ComponentPackaging extends IdentifiableEntity {
+public final class ComponentPackaging {
 }

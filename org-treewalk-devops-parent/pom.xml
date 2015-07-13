@@ -157,9 +157,10 @@
         <treewalk-parent-pom.versionsVersion>2.2</treewalk-parent-pom.versionsVersion>
         <treewalk-parent-pom.jgitflowVersion>1.0-m5.1</treewalk-parent-pom.jgitflowVersion>
         <treewalk-parent-pom.pitestVersion>1.1.5</treewalk-parent-pom.pitestVersion>
-        <treewalk-parent-pom.springBootVersion>1.2.5.RELEASE</treewalk-parent-pom.springBootVersion>
 
         <!-- Dependency Versions -->
+        <treewalk-parent-pom.springBootVersion>1.2.5.RELEASE</treewalk-parent-pom.springBootVersion>
+        <treewalk-parent-pom.guavaVersion>18.0</treewalk-parent-pom.guavaVersion>
         <treewalk-parent-pom.junitVersion>4.12</treewalk-parent-pom.junitVersion>
 
 
@@ -235,6 +236,13 @@
                 <version>${treewalk-parent-pom.springBootVersion}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+
+            <!-- Google Guava Dependencies -->
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${treewalk-parent-pom.guavaVersion}</version>
             </dependency>
 
             <!-- Test Dependencies -->

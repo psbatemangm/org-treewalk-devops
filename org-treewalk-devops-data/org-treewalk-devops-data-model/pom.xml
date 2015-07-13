@@ -14,4 +14,11 @@
     <packaging>jar</packaging>
     <name>Treewalk DevOps Platform: Data Model</name>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
 </project>

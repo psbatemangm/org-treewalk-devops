@@ -3,32 +3,40 @@ package org.treewalk.devops.data.model.component;
 import org.treewalk.devops.data.model.IdentifiableEntity;
 
 /**
- * <p></p>
+ * <p>A {@link ComponentIdentifier} combines the {@link ComponentNamespace} and {@link ComponentVersion}.</p>
  */
-public final class ComponentIdentifier extends IdentifiableEntity {
+public final class ComponentIdentifier {
 
-    private String groupId;
-    private String artefactId;
+    private ComponentNamespace namespace;
+    private ComponentVersion version;
 
     public ComponentIdentifier() {
     }
 
-    public String getGroupId() {
-        return groupId;
+    public ComponentIdentifier(ComponentNamespace namespace, ComponentVersion version) {
+        this.namespace = namespace;
+        this.version = version;
     }
 
-    public void setGroupId(String groupId) {
-        this.groupId = groupId;
+    public ComponentNamespace getNamespace() {
+        return namespace;
     }
 
-    public String getArtefactId() {
-        return artefactId;
+    public void setNamespace(ComponentNamespace namespace) {
+        this.namespace = namespace;
     }
 
-    public void setArtefactId(String artefactId) {
-        this.artefactId = artefactId;
+    public ComponentVersion getVersion() {
+        return version;
     }
 
+    public void setVersion(ComponentVersion version) {
+        this.version = version;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -36,16 +44,19 @@ public final class ComponentIdentifier extends IdentifiableEntity {
 
         ComponentIdentifier that = (ComponentIdentifier) o;
 
+        if (namespace != null ? !namespace.equals(that.namespace) : that.namespace != null) return false;
+        return !(version != null ? !version.equals(that.version) : that.version != null);
 
-        if (groupId != null ? !groupId.equals(that.getGroupId()) : that.getGroupId() != null) return false;
-        return !(artefactId != null ? !artefactId.equals(that.artefactId) : that.artefactId != null);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public int hashCode() {
         int result = super.hashCode();
-        result = 31 * result + groupId.hashCode();
-        result = 31 * result + artefactId.hashCode();
+        result = 31 * result + (namespace != null ? namespace.hashCode() : 0);
+        result = 31 * result + (version != null ? version.hashCode() : 0);
         return result;
     }
 }

@@ -1,5 +1,7 @@
 package org.treewalk.devops.data.model.component;
 
+import com.google.common.collect.ImmutableList;
+import org.treewalk.devops.data.model.ID;
 import org.treewalk.devops.data.model.IdentifiableEntity;
 
 import java.util.ArrayList;
@@ -8,15 +10,53 @@ import java.util.Collection;
 /**
  * <p>Defines a specific version of a {@link Component}.</p>
  */
-public class Component extends IdentifiableEntity {
+public final class Component extends IdentifiableEntity {
 
     private ComponentIdentifier identifier;
-    private ComponentVersion version;
     private ComponentPackaging packaging;
     private Collection<ComponentDependency> dependencies;
 
+    /**
+     * <p>Default Constructor</p>
+     */
     public Component() {
         this.dependencies = new ArrayList<>();
+    }
+
+    /**
+     * <p>Construct a {@link Component} from the constituent parts.</p>
+     *
+     * @param id the internal identifier
+     * @param identifier the {@link ComponentIdentifier}
+     * @param packaging the {@link ComponentPackaging}
+     * @param dependencies the {@link ComponentDependency}(s)
+     */
+    public Component(final ID id, final ComponentIdentifier identifier, final ComponentPackaging packaging,
+                     final Collection<ComponentDependency> dependencies) {
+        super(id);
+        this.identifier = identifier;
+        this.packaging = packaging;
+        if (dependencies != null && dependencies.size() > 0) {
+            this.dependencies = new ArrayList<>(dependencies);
+        }
+    }
+
+    /**
+     * <p>Construct a {@link Component} from the constituent parts.</p>
+     *
+     * @param id the internal identifier
+     * @param groupId
+     * @param artifactId
+     * @param version
+     * @param packaging the {@link ComponentPackaging}
+     * @param dependencies the {@link ComponentDependency}(s)
+     */
+    public Component(final ID id, final String groupId, final String artifactId, final String version,
+                     final ComponentPackaging packaging, final Collection<ComponentDependency> dependencies) {
+
+
+        this(id, new ComponentIdentifier(new ComponentNamespace(groupId, artifactId), new ComponentVersion(version)),
+                packaging, dependencies);
     }
 
     public ComponentIdentifier getIdentifier() {
@@ -25,14 +65,6 @@ public class Component extends IdentifiableEntity {
 
     public void setIdentifier(ComponentIdentifier identifier) {
         this.identifier = identifier;
-    }
-
-    public ComponentVersion getVersion() {
-        return version;
-    }
-
-    public void setVersion(ComponentVersion version) {
-        this.version = version;
     }
 
     public ComponentPackaging getPackaging() {
@@ -44,19 +76,19 @@ public class Component extends IdentifiableEntity {
     }
 
     public Collection<ComponentDependency> getDependencies() {
-        return dependencies;
+        return ImmutableList.<ComponentDependency>builder().addAll(dependencies).build();
     }
 
     public void addDependency(ComponentDependency dependency) {
         this.dependencies.add(dependency);
     }
 
+    public void addDependencies(Collection<ComponentDependency> dependencies) {
+        this.dependencies.addAll(dependencies);
+    }
+
     /**
-     * <p>Equality is based of the <code>GAV</code> co-ordinates</p>
-     *
-     * @param o the object to compare
-     *
-     * @return
+     * {@inheritDoc}
      */
     @Override
     public boolean equals(Object o) {
@@ -65,20 +97,17 @@ public class Component extends IdentifiableEntity {
 
         Component component = (Component) o;
 
-        if (identifier != null ? !identifier.equals(component.identifier) : component.identifier != null) return false;
-        return !(version != null ? !version.equals(component.version) : component.version != null);
+        return !(identifier != null ? !identifier.equals(component.identifier) : component.identifier != null);
 
     }
 
     /**
-     * <p>Hash is based on the <code>GAV</code> co-ordinates</p>
-     *
-     * @return the hash code
+     * {@inheritDoc}
      */
     @Override
     public int hashCode() {
-        int result = identifier != null ? identifier.hashCode() : 0;
-        result = 31 * result + (version != null ? version.hashCode() : 0);
+        int result = super.hashCode();
+        result = 31 * result + (identifier != null ? identifier.hashCode() : 0);
         return result;
     }
 }
