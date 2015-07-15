@@ -1,6 +1,9 @@
 package org.treewalk.devops.data.model.component;
 
+import com.google.common.base.MoreObjects;
 import org.treewalk.devops.data.model.IdentifiableEntity;
+
+import static com.google.common.base.MoreObjects.toStringHelper;
 
 /**
  * <p>The version of a {@link Component}.</p>.
@@ -39,5 +42,10 @@ public final class ComponentVersion {
         int result = super.hashCode();
         result = 31 * result + (version != null ? version.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return toStringHelper(this).add("version", version).toString();
     }
 }

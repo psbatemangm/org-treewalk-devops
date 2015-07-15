@@ -98,4 +98,5 @@ public class ComponentTest {
         // then
         assertThat(component1.equals(component2), is(true));
     }
+
 }

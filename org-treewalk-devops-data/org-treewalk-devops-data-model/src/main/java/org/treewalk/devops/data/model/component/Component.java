@@ -7,8 +7,12 @@ import org.treewalk.devops.data.model.IdentifiableEntity;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import static com.google.common.base.MoreObjects.toStringHelper;
+
 /**
- * <p>Defines a specific version of a {@link Component}.</p>
+ * <p>Defines a complete {@link Component}.</p>
+ *
+ * <p></p>
  */
 public final class Component extends IdentifiableEntity {
 
@@ -110,4 +114,14 @@ public final class Component extends IdentifiableEntity {
         result = 31 * result + (identifier != null ? identifier.hashCode() : 0);
         return result;
     }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public String toString() {
+        return toStringHelper(this).omitNullValues().addValue(super.toString()).add("identifier", identifier).add("packaging", packaging)
+                .add("dependencies", dependencies).toString();
+    }
+
 }

@@ -2,6 +2,8 @@ package org.treewalk.devops.data.model.component;
 
 import org.treewalk.devops.data.model.IdentifiableEntity;
 
+import static com.google.common.base.MoreObjects.toStringHelper;
+
 /**
  * <p>Identifies the <code>Group</code> and the <code>Artifact</code> of a {@link Component}.</p>
  */
@@ -61,5 +63,13 @@ public final class ComponentNamespace {
         result = 31 * result + (groupId != null ? groupId.hashCode() : 0);
         result = 31 * result + (artifactId != null ? artifactId.hashCode() : 0);
         return result;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public String toString() {
+        return toStringHelper(this).add("groupId", groupId).add("artifactId", artifactId).toString();
     }
 }

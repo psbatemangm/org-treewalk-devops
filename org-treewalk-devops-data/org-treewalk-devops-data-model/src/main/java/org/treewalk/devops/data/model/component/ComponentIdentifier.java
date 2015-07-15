@@ -2,6 +2,8 @@ package org.treewalk.devops.data.model.component;
 
 import org.treewalk.devops.data.model.IdentifiableEntity;
 
+import static com.google.common.base.MoreObjects.toStringHelper;
+
 /**
  * <p>A {@link ComponentIdentifier} combines the {@link ComponentNamespace} and {@link ComponentVersion}.</p>
  */
@@ -58,5 +60,13 @@ public final class ComponentIdentifier {
         result = 31 * result + (namespace != null ? namespace.hashCode() : 0);
         result = 31 * result + (version != null ? version.hashCode() : 0);
         return result;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public String toString() {
+        return toStringHelper(this).add("namespace", namespace).add("version", version).toString();
     }
 }

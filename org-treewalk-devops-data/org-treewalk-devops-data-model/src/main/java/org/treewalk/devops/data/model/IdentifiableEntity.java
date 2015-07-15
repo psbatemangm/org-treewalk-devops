@@ -1,5 +1,7 @@
 package org.treewalk.devops.data.model;
 
+import static com.google.common.base.MoreObjects.toStringHelper;
+
 /**
  * <p>Base class for all data model entities.</p>
  */
@@ -56,4 +58,13 @@ public abstract class IdentifiableEntity {
     public int hashCode() {
         return id.hashCode();
     }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public String toString() {
+        return toStringHelper("ID").addValue(id).toString();
+    }
+
 }
