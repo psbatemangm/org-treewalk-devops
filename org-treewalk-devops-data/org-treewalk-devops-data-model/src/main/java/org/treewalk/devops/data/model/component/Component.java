@@ -1,6 +1,9 @@
 package org.treewalk.devops.data.model.component;
 
 import com.google.common.collect.ImmutableList;
+import org.apache.commons.lang.builder.EqualsBuilder;
+import org.apache.commons.lang.builder.HashCodeBuilder;
+import org.apache.commons.lang.builder.ToStringBuilder;
 import org.treewalk.devops.data.model.ID;
 import org.treewalk.devops.data.model.IdentifiableEntity;
 
@@ -96,13 +99,13 @@ public final class Component extends IdentifiableEntity {
      */
     @Override
     public boolean equals(Object o) {
+
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
         Component component = (Component) o;
 
-        return !(identifier != null ? !identifier.equals(component.identifier) : component.identifier != null);
-
+        return new EqualsBuilder().append(this.identifier, ((Component) o).getIdentifier()).isEquals();
     }
 
     /**
@@ -110,9 +113,7 @@ public final class Component extends IdentifiableEntity {
      */
     @Override
     public int hashCode() {
-        int result = super.hashCode();
-        result = 31 * result + (identifier != null ? identifier.hashCode() : 0);
-        return result;
+        return new HashCodeBuilder().append(identifier).hashCode();
     }
 
     /**
@@ -120,8 +121,6 @@ public final class Component extends IdentifiableEntity {
      */
     @Override
     public String toString() {
-        return toStringHelper(this).omitNullValues().addValue(super.toString()).add("identifier", identifier).add("packaging", packaging)
-                .add("dependencies", dependencies).toString();
+        return new ToStringBuilder(this).append(identifier).append(packaging).toString();
     }
-
 }
