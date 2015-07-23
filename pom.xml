@@ -18,6 +18,7 @@
         <module>org-treewalk-devops-data</module>
         <module>org-treewalk-devops-integration</module>
         <module>org-treewalk-devops-packaging</module>
+        <module>org-treewalk-devops-tool</module>
     </modules>
 
 </project>

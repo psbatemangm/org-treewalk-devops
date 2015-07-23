@@ -161,6 +161,7 @@
         <!-- Dependency Versions -->
         <treewalk-parent-pom.springBootVersion>1.2.5.RELEASE</treewalk-parent-pom.springBootVersion>
         <treewalk-parent-pom.guavaVersion>18.0</treewalk-parent-pom.guavaVersion>
+        <treewalk-parent-pom.commonsLangVersion>2.6</treewalk-parent-pom.commonsLangVersion>
         <treewalk-parent-pom.junitVersion>4.12</treewalk-parent-pom.junitVersion>
 
 
@@ -243,6 +244,13 @@
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
                 <version>${treewalk-parent-pom.guavaVersion}</version>
+            </dependency>
+
+            <!-- Apache Commons Dependencies -->
+            <dependency>
+                <groupId>commons-lang</groupId>
+                <artifactId>commons-lang</artifactId>
+                <version>${treewalk-parent-pom.commonsLangVersion}</version>
             </dependency>
 
             <!-- Test Dependencies -->
